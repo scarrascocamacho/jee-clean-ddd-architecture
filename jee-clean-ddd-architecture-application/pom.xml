@@ -4,40 +4,81 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>jee-clean-ddd-architecture</groupId>
+		<groupId>jeecleandddarchitecture</groupId>
 		<artifactId>jee-clean-ddd-architecture</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>jee-clean-ddd-architecture-application</groupId>
+	<groupId>jeecleandddarchitecture</groupId>
 	<artifactId>jee-clean-ddd-architecture-application</artifactId>
 	<name>jee-clean-ddd-architecture-application</name>
 	<description>jee-clean-ddd-architecture-application</description>
 	<packaging>jar</packaging>
 
-	<properties>
-		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<timestamp>${maven.build.timestamp}</timestamp>
-		<maven.build.timestamp.format>dd/MM/yyyy HH:mm</maven.build.timestamp.format>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
+	<!-- <properties> -->
+	<!-- <start-class>jeecleandddarchitecture.Application</start-class> -->
+	<!-- </properties> -->
 
 	<dependencies>
 
 		<dependency>
-			<groupId>jee-clean-ddd-architecture-infrastructure</groupId>
+			<groupId>jeecleandddarchitecture</groupId>
 			<artifactId>jee-clean-ddd-architecture-infrastructure</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>jee-clean-ddd-architecture-domain</groupId>
+			<groupId>jeecleandddarchitecture</groupId>
 			<artifactId>jee-clean-ddd-architecture-domain</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 
+		<!-- tag::web[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- end::web[] -->
+
+		<!-- tag::security[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- end::security[] -->
+
+		<!-- tag::test[] -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- end::test[] -->
+
 	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources/webapp</directory>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>jeecleandddarchitecture.Application</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
