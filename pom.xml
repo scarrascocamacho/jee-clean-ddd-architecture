@@ -3,12 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>jee-clean-ddd-architecture</groupId>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>jeecleandddarchitecture</groupId>
 	<artifactId>jee-clean-ddd-architecture</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>jee-clean-ddd-architecture</name>
 	<packaging>pom</packaging>
-	<description>Jee Clean Architecture Prototype</description>
+	<description>Jee Clean DDD Architecture Prototype</description>
 
 	<modules>
 		<module>jee-clean-ddd-architecture-application</module>
@@ -17,12 +24,48 @@
 	</modules>
 
 	<properties>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
 	</properties>
 
-	<dependencyManagement>
-	</dependencyManagement>
+	<dependencies>
+		<!-- tag::spring-boot-starter[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<!-- end::spring-boot-starter[] -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- tag::mapper[] -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+		<!-- end::mapper[] -->
+
+		<!-- tag::spring-boot-starter-test[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- end::spring-boot-starter-test[] -->
+	</dependencies>
 
 </project>
