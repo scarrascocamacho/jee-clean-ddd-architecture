@@ -1,7 +1,7 @@
 /**
  *
  */
-package jeecleandddarchitecture.user.control;
+package jeecleandddarchitecture.user.control.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import jeecleandddarchitecture.user.entity.RolDto;
  *
  */
 @Service
-public class RolHardcodedService {
+public class RolHardcodedServiceImpl {
 	private static List<RolDto> roles = new ArrayList<>();
 	private static long idCounter = 0;
 

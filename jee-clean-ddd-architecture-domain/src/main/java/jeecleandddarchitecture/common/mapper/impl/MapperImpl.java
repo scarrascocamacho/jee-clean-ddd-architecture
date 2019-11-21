@@ -14,7 +14,7 @@ import jeecleandddarchitecture.common.mapper.MapperI;
  * @author scarrasco
  *
  */
-public class GenericMapperImpl<E, D> implements MapperI<E, D> {
+public class MapperImpl<E, D> implements MapperI<E, D> {
 	
 	@Autowired
 	protected MapperI<E, D> mapper;
