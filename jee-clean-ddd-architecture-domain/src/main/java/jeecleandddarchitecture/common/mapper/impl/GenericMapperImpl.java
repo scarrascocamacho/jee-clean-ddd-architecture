@@ -1,7 +1,7 @@
 /**
  *
  */
-package jeecleandddarchitecture.common.control;
+package jeecleandddarchitecture.common.mapper.impl;
 
 import java.util.ArrayList;
 import java.util.List;

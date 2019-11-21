@@ -15,6 +15,6 @@ import jeecleandddarchitecture.user.entity.RolE;
  *
  */
 @Repository
-abstract interface RolJpaRepositoryI extends JpaRepository<RolE, Long> {
+public abstract interface RolJpaRepositoryI extends JpaRepository<RolE, Long> {
 	List<RolE> findByUsername(String username);
 }
