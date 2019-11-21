@@ -24,7 +24,7 @@ import jeecleandddarchitecture.user.entity.RolDto;
 public class UserController {
 	@Autowired
 	private RolHardcodedService rolesManagementService;
-	
+
 	@GetMapping("/users/{username}/rolesHardcoded")
 	public List<RolDto> getAllRoles(@PathVariable final String username) {
 		return rolesManagementService.findAll();

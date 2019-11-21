@@ -14,11 +14,11 @@ import jeecleandddarchitecture.user.entity.RolDto;
  */
 public interface RolRepositoryI extends GenericRepositoryI<RolDto> {
 	List<RolDto> findByUsername(String username);
-	
-	RolDto findById(Long id);
 
+	RolDto findById(Long id);
+	
 	@Override
 	List<RolDto> findAll();
-
+	
 	void deleteById(Long id);
 }
