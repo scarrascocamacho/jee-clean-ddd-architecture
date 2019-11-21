@@ -21,7 +21,7 @@ public class RolRepositoryImpl extends GenericMapperImpl<RolE, RolDto> implement
 
 	@Autowired
 	private RolJpaRepositoryI repository;
-	
+
 	@Override
 	public List<RolDto> findByUsername(final String username) {
 		return toDtoList(repository.findByUsername(username));
@@ -61,9 +61,13 @@ public class RolRepositoryImpl extends GenericMapperImpl<RolE, RolDto> implement
 	public RolDto update(final RolDto rol) {
 		return save(rol);
 	}
-	
+
 	private RolDto save(final RolDto rol) {
 		return toDto(repository.save(toEntity(rol)));
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'develop' of https://github.com/scarrascocamacho/jee-clean-ddd-architecture
 }
