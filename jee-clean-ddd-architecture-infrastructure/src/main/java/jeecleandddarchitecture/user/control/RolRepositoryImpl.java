@@ -1,16 +1,14 @@
 /**
  *
  */
-package jeecleandddarchitecture.user.control.impl;
+package jeecleandddarchitecture.user.control;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import jeecleandddarchitecture.common.mapper.impl.MapperImpl;
-import jeecleandddarchitecture.user.control.RolJpaRepositoryI;
-import jeecleandddarchitecture.user.control.RolRepositoryI;
+import jeecleandddarchitecture.common.control.GenericMapperImpl;
 import jeecleandddarchitecture.user.entity.RolDto;
 import jeecleandddarchitecture.user.entity.RolE;
 
@@ -19,11 +17,11 @@ import jeecleandddarchitecture.user.entity.RolE;
  *
  */
 @Repository
-public class RolRepositoryImpl extends MapperImpl<RolE, RolDto> implements RolRepositoryI {
+public class RolRepositoryImpl extends GenericMapperImpl<RolE, RolDto> implements RolRepositoryI {
 
 	@Autowired
 	private RolJpaRepositoryI repository;
-
+	
 	@Override
 	public List<RolDto> findByUsername(final String username) {
 		return toDtoList(repository.findByUsername(username));
@@ -63,9 +61,9 @@ public class RolRepositoryImpl extends MapperImpl<RolE, RolDto> implements RolRe
 	public RolDto update(final RolDto rol) {
 		return save(rol);
 	}
-
+	
 	private RolDto save(final RolDto rol) {
 		return toDto(repository.save(toEntity(rol)));
 	}
-
+	
 }

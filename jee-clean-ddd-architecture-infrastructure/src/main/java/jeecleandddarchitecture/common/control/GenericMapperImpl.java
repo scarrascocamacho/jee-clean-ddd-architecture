@@ -1,7 +1,7 @@
 /**
  *
  */
-package jeecleandddarchitecture.common.mapper.impl;
+package jeecleandddarchitecture.common.control;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import jeecleandddarchitecture.common.mapper.MapperI;
  * @author scarrasco
  *
  */
-public class MapperImpl<E, D> implements MapperI<E, D> {
+public class GenericMapperImpl<E, D> implements MapperI<E, D> {
 	
 	@Autowired
 	protected MapperI<E, D> mapper;

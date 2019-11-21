@@ -16,7 +16,7 @@ import jeecleandddarchitecture.user.entity.RolDto;
  *
  */
 @Service
-public class RolHardcodedServiceImpl {
+public class RolHardcodedService {
 	private static List<RolDto> roles = new ArrayList<>();
 	private static long idCounter = 0;
 
