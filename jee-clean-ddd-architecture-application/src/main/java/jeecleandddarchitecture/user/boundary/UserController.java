@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import jeecleandddarchitecture.user.control.RolHardcodedService;
+import jeecleandddarchitecture.user.control.RolHardcodedServiceImpl;
 import jeecleandddarchitecture.user.entity.RolDto;
 
 /***
@@ -23,8 +23,8 @@ import jeecleandddarchitecture.user.entity.RolDto;
 @RestController
 public class UserController {
 	@Autowired
-	private RolHardcodedService rolesManagementService;
-	
+	private RolHardcodedServiceImpl rolesManagementService;
+
 	@GetMapping("/users/{username}/rolesHardcoded")
 	public List<RolDto> getAllRoles(@PathVariable final String username) {
 		return rolesManagementService.findAll();

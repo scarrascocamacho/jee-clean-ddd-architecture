@@ -17,7 +17,7 @@ import jeecleandddarchitecture.auth.entity.AuthenticationDto;
 @CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
 @RestController
 public class BasicAuthenticationController {
-
+	
 	@GetMapping(path = "/basicauth")
 	public AuthenticationDto basicAuthentication() {
 		// throw new RuntimeException("Some Error has Happened! Contact Support at ***-***");

@@ -32,17 +32,17 @@ public class RolController {
 
 	@Autowired
 	private RolRepositoryI rolesRepository;
-	
+
 	@GetMapping("/users/roles")
 	public List<RolDto> getAllRoles(@PathVariable(required = false) final String username) {
 		return rolesRepository.findAll();
 	}
-	
+
 	@GetMapping("/users/{username}/roles")
 	public List<RolDto> getAllRolesByUsername(@PathVariable final String username) {
 		return rolesRepository.findByUsername(username);
 	}
-	
+
 	@GetMapping("/users/{username}/roles/{id}")
 	public RolDto getRol(@PathVariable final String username, @PathVariable final long id) {
 		return rolesRepository.findById(id);
@@ -50,33 +50,33 @@ public class RolController {
 
 	@DeleteMapping("/users/{username}/roles/{id}")
 	public ResponseEntity<Void> deleteRol(@PathVariable final String username, @PathVariable final long id) {
-		
+
 		rolesRepository.deleteById(id);
-		
+
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@PutMapping("/users/{username}/roles/{id}")
 	public ResponseEntity<RolDto> updateRol(@PathVariable final String username, @PathVariable final long id,
 	        @RequestBody final RolDto rol) {
-		
+
 		rol.setUsername(username);
 
 		final RolDto rolUpdated = rolesRepository.update(rol);
-		
+
 		return new ResponseEntity<>(rolUpdated, HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/users/{username}/roles")
 	public ResponseEntity<Void> createCourse(@PathVariable final String username, @RequestBody final RolDto rol) {
 
 		rol.setUsername(username);
-		
+
 		final RolDto createdRol = rolesRepository.create(rol);
-		
+
 		final URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 		        .buildAndExpand(createdRol.getId()).toUri();
-		
+
 		return ResponseEntity.created(uri).build();
 	}
 }

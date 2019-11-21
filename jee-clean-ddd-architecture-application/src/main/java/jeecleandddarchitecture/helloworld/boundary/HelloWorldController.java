@@ -18,17 +18,17 @@ import jeecleandddarchitecture.helloworld.entity.HelloWorldDto;
 @RestController
 @CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
 public class HelloWorldController {
-	
+
 	@GetMapping("/hello-world")
 	public String helloWorld() {
 		return "Hello World";
 	}
-	
+
 	@GetMapping(path = "/hello-world-bean")
 	public HelloWorldDto helloWorldDto() {
 		return new HelloWorldDto("Hello World From a Java Bean");
 	}
-
+	
 	/// hello-world/path-variable/helloworld
 	@GetMapping(path = "/hello-world/path-variable/{name}")
 	public HelloWorldDto helloWorldPathVariable(@PathVariable final String name) {
