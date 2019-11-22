@@ -29,4 +29,38 @@ public class RolHardcodedServiceImpl {
 	public List<RolDto> findAll() {
 		return roles;
 	}
+
+	public RolDto deleteById(final long id) {
+		final RolDto rol = findById(id);
+
+		if (rol == null) {
+			return null;
+		}
+
+		if (roles.remove(rol)) {
+			return rol;
+		}
+
+		return null;
+	}
+
+	public RolDto findById(final long id) {
+		for (final RolDto rol : roles) {
+			if (rol.getId() == id) {
+				return rol;
+			}
+		}
+		return null;
+	}
+
+	public RolDto save(final RolDto rol) {
+		if (rol.getId() == -1 || rol.getId() == 0) {
+			rol.setId(++idCounter);
+			roles.add(rol);
+		} else {
+			deleteById(rol.getId());
+			roles.add(rol);
+		}
+		return rol;
+	}
 }
