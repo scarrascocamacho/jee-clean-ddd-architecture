@@ -28,7 +28,7 @@ import jeecleandddarchitecture.authentication.jwt.control.JwtUnAuthorizedRespons
 
 /**
  * Customizes Spring Security for JWT Authentication Needs by extending WebSecurityConfigurerAdapter
- * 
+ *
  * @author scarrasco
  *
  */
@@ -42,7 +42,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private JwtUnAuthorizedResponseAuthenticationEntryPoint jwtUnAuthorizedResponseAuthenticationEntryPoint;
 	
 	@Autowired
-	private UserDetailsService jwtInMemoryUserDetailsService;
+	private UserDetailsService userDetailsService;
 	
 	@Autowired
 	private JwtTokenAuthorizationOncePerRequestFilter jwtAuthenticationTokenFilter;
@@ -52,7 +52,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(jwtInMemoryUserDetailsService).passwordEncoder(passwordEncoderBean());
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoderBean());
 	}
 	
 	@Bean
@@ -82,7 +82,6 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(final WebSecurity webSecurity) throws Exception {
 		webSecurity.ignoring().antMatchers(HttpMethod.POST, authenticationPath).antMatchers(HttpMethod.OPTIONS, "/**")
-		        .and().ignoring().antMatchers(HttpMethod.GET, "/" // Other Stuff You want to Ignore
-				).and().ignoring().antMatchers("/h2-console/**/**");// Should not be in Production!
+		        .and().ignoring().antMatchers(HttpMethod.GET, "/").and().ignoring().antMatchers("/h2-console/**/**");
 	}
 }

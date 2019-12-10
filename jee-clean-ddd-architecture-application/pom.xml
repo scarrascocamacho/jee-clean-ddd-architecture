@@ -2,18 +2,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>jeecleandddarchitecture</groupId>
+	<artifactId>jee-clean-ddd-architecture-application</artifactId>
+	<name>${project.artifactId}</name>
+	<description>jee-clean-ddd-architecture-application</description>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>jeecleandddarchitecture</groupId>
 		<artifactId>jee-clean-ddd-architecture</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<groupId>jeecleandddarchitecture</groupId>
-	<artifactId>jee-clean-ddd-architecture-application</artifactId>
-	<name>jee-clean-ddd-architecture-application</name>
-	<description>jee-clean-ddd-architecture-application</description>
-	<packaging>jar</packaging>
 
 	<!-- <properties> -->
 	<!-- <start-class>jeecleandddarchitecture.Application</start-class> -->
@@ -27,54 +27,24 @@
 			<version>${project.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>jeecleandddarchitecture</groupId>
-			<artifactId>jee-clean-ddd-architecture-domain</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
 		<!-- tag::web[] -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<!-- end::web[] -->
 
-		<!-- tag::security[] -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.9.1</version>
-		</dependency>
-		<!-- end::security[] -->
-
-		<!-- tag::test[] -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- end::test[] -->
-
 	</dependencies>
 
 	<build>
-		<resources>
+		<!--resources>
 			<resource>
 				<directory>src/main/resources/webapp</directory>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
-		</resources>
+		</resources-->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

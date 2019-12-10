@@ -8,13 +8,13 @@ package jeecleandddarchitecture.common.control;
  *
  */
 public interface GenericRepositoryI<T> {
-	T create(T t);
-
-	void delete(T t);
-
-	T find(T t);
-
-	T update(T t);
-
+	T create(T dto);
+	
+	void delete(T dto);
+	
+	T find(T dto);
+	
+	T update(T dto);
+	
 	Iterable<T> findAll();
 }

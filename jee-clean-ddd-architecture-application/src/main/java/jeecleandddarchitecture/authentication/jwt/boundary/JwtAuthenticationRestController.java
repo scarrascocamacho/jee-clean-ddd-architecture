@@ -49,7 +49,7 @@ public class JwtAuthenticationRestController {
 	private JwtTokenUtil jwtTokenUtil;
 	
 	@Autowired
-	private UserDetailsService jwtInMemoryUserDetailsService;
+	private UserDetailsService userDetailsService;
 	
 	@RequestMapping(value = "${jwt.get.token.uri}", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody final JwtTokenRequest authenticationRequest)
@@ -57,7 +57,7 @@ public class JwtAuthenticationRestController {
 		
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 		
-		final UserDetails userDetails = jwtInMemoryUserDetailsService
+		final UserDetails userDetails = userDetailsService
 		        .loadUserByUsername(authenticationRequest.getUsername());
 		
 		final String token = jwtTokenUtil.generateToken(userDetails);
@@ -70,7 +70,7 @@ public class JwtAuthenticationRestController {
 		final String authToken = request.getHeader(tokenHeader);
 		final String token = authToken.substring(7);
 		final String username = jwtTokenUtil.getUsernameFromToken(token);
-		jwtInMemoryUserDetailsService.loadUserByUsername(username);
+		userDetailsService.loadUserByUsername(username);
 		
 		if (jwtTokenUtil.canTokenBeRefreshed(token)) {
 			final String refreshedToken = jwtTokenUtil.refreshToken(token);
