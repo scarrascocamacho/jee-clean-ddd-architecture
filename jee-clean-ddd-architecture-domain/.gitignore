@@ -2,3 +2,5 @@
 /target/
 /.classpath
 /.project
+/.sts4-cache/
+/.factorypath
